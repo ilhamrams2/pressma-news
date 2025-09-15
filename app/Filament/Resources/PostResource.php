@@ -59,7 +59,12 @@ class PostResource extends Resource
                         'h3',
                     ]),
                 Forms\Components\FileUpload::make('image')
-                    ->image(),
+                    ->directory('image')
+                    ->disk('public')
+                    ->image()
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([null])
+                    ->label('Gambar'),
                 Forms\Components\Select::make('status')
                     ->options([
                         'draft' => 'Draft',
@@ -75,10 +80,10 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id')
+                Tables\Columns\TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('category_id')
+                Tables\Columns\TextColumn::make('category.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')
