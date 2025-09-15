@@ -53,7 +53,7 @@
 </head>
 
 <body>
-
+    <img src="https://img.freepik.com/free-photo/closeup-scarlet-macaw-from-side-view-scarlet-macaw-closeup-head_488145-3540.jpg?semt=ais_incoming&w=740&q=80" alt="">
     <!-- Topbar -->
     <div class="top-bar container">
         <div class="row">
