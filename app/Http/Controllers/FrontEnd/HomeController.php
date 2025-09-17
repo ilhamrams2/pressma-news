@@ -20,9 +20,18 @@ class HomeController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function single(string $slug)
     {
-        //
+        $singgleposts = Post::with('category', 'user')
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        $posts = Post::with('category', 'user')
+            ->where('id', '!=', $singgleposts->id) // exclude post yg sama
+            ->latest()
+            ->get();
+
+        return view('pages.single', compact('singgleposts', 'posts'));
     }
 
     /**

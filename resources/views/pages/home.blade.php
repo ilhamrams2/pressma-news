@@ -11,7 +11,7 @@
                         @foreach ($posts as $post)
                             <span class="cat-default">{{ $post->category->name }}</span>
                             <p><i class="fa fa-clock-o"></i>{{ $post->published_at }}</p>
-                            <h4><a href="./news_single.html">{{ $post->title }}</a></h4>
+                            <h4><a href="{{ route('single', $post->slug) }}">{{ $post->title }}</a></h4>
                             <div class="sep"></div>
                         @endforeach
 
@@ -71,7 +71,7 @@
                                 <img src="{{ asset('storage/' . $post->image) }}" class="img-responsive" alt="" />
                                 <div class="bl-info">
                                     <span>{{ $post->category->name }}</span>
-                                    <h3><a href="./news_single.html">Ongoing studio express service releasesThread</a></h3>
+                                    <h3><a href="./news_single.html">{{ $post->title }}</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -89,12 +89,9 @@
                                                 alt="" />
                                             <div class="fn-meta">{{ $post->category->name }}</div>
                                         </div>
-                                        <h4><a href="./news_single.html">Are you using marketplace analytics?</a></h4>
-                                        <em><i class="fa fa-clock-o"></i> December 13,2014 <a href="#"><i
-                                                    class="fa fa-comments"></i> 5</a></em>
-                                        <p>We're running a Cinemagraph contest where we want you to create Cinemagraph
-                                            images
-                                            and we've got over $1,000 worth of prizes up for grabs courtesy ..</p>
+                                        <h4><a href="./news_single.html">{{ $post->title }}</a></h4>
+                                        <em><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($post->published_at)->translatedFormat('d M Y') }} <a href="#"></em>
+                                        <p>{!! \Illuminate\Support\Str::words(strip_tags($post->content), 10, '...') !!}</p>
                                     </div>
                                 @endforeach
                             </div>
@@ -107,19 +104,16 @@
                                                 alt="" />
                                             <div class="fn-meta">{{ $post->category->name }}</div>
                                         </div>
-                                        <h4><a href="./news_single.html">Are you using marketplace analytics?</a></h4>
-                                        <em><i class="fa fa-clock-o"></i> December 13,2014 <a href="#"><i
-                                                    class="fa fa-comments"></i> 5</a></em>
-                                        <p>We're running a Cinemagraph contest where we want you to create Cinemagraph
-                                            images
-                                            and we've got over $1,000 worth of prizes up for grabs courtesy ..</p>
+                                        <h4><a href="./news_single.html">{{ $post->title }}</a></h4>
+                                        <em><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($post->published_at)->translatedFormat('d M Y') }} <a href="#"></em>
+                                        <p>{!! \Illuminate\Support\Str::words(strip_tags($post->content), 10, '...') !!}</p>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
                     </div>
 
-                    <div class="cat-blocks">
+                    {{-- <div class="cat-blocks">
                         <h4><span>Technology</span></h4>
                         <div class="row">
                             <div class="col-md-6">
@@ -147,7 +141,7 @@
                             </div>
                         </div>
                         <div class="space40"></div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -164,11 +158,8 @@
                             <li>
                                 <img src="{{ asset('storage/' . $post->image) }}" alt="" />
                                 <div class="pn-info">
-                                    <em><i class="fa fa-clock-o"></i> December 13,2014 <a href="#"><i
-                                                class="fa fa-comments"></i> 5</a></em>
-                                    <h4><a href="./news_single.html">Driverless cars need to make their passengers feel
-                                            like
-                                            drivers</a></h4>
+                                    <em><i class="fa fa-clock-o"></i> {{ $post->published_at }} <a href="#"></em>
+                                    <h4><a href="./news_single.html">{{ $post->title }}</a></h4>
                                 </div>
                             </li>
                         @endforeach
@@ -182,7 +173,7 @@
                 <a href="#"><img src="{{ asset('img/banner/3.jpg') }}" class="img-responsive" alt="" /></a>
             </div>
             <div class="side-widget m-comment">
-                <h5><span>Most Commented</span></h5>
+                <h5><span>Hot News</span></h5>
                 <ul>
 
                     @foreach ($posts as $post)

@@ -35,3 +35,6 @@ Route::get('/generate', function () {
     redirect()->back();
 });
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/detail/{slug}', [HomeController::class, 'single'])->name('single');
+
+

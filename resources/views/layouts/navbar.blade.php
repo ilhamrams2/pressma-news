@@ -8,15 +8,15 @@
                 <nav>
                     <ul id="nav">
                         <li id="selected" class="n-menu subnav">
-                            <a href="#" class="sub-nav">Home Pages</a>
+                            <a href="{{ route('home') }}" class="sub-nav">Home Pages</a>
                             <ul class="mega-menu simple">
                                 <li class="sub-menu">
                                     <ul>
-                                        <li><a href="index.html">Home 1</a></li>
+                                        {{-- <li><a href="index.html">Home 1</a></li>
                                         <li><a href="index_2.html">Home 2</a></li>
                                         <li><a href="index_3.html">Home 3</a></li>
                                         <li><a href="index_4.html">Home 4</a></li>
-                                        <li><a href="index_5.html">Home 5</a></li>
+                                        <li><a href="index_5.html">Home 5</a></li> --}}
                                     </ul>
                                 </li>
                             </ul>
