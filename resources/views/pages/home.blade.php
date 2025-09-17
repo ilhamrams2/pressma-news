@@ -82,31 +82,31 @@
                         <div class="row">
 
                             <div class="col-md-6">
-                                @foreach ($posts as $post)
+                                @foreach ($fe1_posts as $fe1_post)
                                     <div class="fn-inner">
                                         <div class="fn-thumb">
-                                            <img src="{{ asset('storage/' . $post->image) }}" class="img-responsive"
+                                            <img src="{{ asset('storage/' . $fe1_post->image) }}" class="img-responsive"
                                                 alt="" />
-                                            <div class="fn-meta">{{ $post->category->name }}</div>
+                                            <div class="fn-meta">{{ $fe1_post->category->name }}</div>
                                         </div>
-                                        <h4><a href="./news_single.html">{{ $post->title }}</a></h4>
-                                        <em><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($post->published_at)->translatedFormat('d M Y') }} <a href="#"></em>
-                                        <p>{!! \Illuminate\Support\Str::words(strip_tags($post->content), 10, '...') !!}</p>
+                                        <h4><a href="./news_single.html">{{ $fe1_post->title }}</a></h4>
+                                        <em><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($fe1_post->published_at)->translatedFormat('d M Y') }} <a href="#"></em>
+                                        <p>{!! \Illuminate\Support\Str::words(strip_tags($fe1_post->content), 10, '...') !!}</p>
                                     </div>
                                 @endforeach
                             </div>
 
                             <div class="col-md-6">
-                                @foreach ($posts as $post)
+                                @foreach ($fe2_posts as $fe2_post)
                                     <div class="fn-inner">
                                         <div class="fn-thumb">
-                                            <img src="{{ asset('storage/' . $post->image) }}" class="img-responsive"
+                                            <img src="{{ asset('storage/' . $fe2_post->image) }}" class="img-responsive"
                                                 alt="" />
-                                            <div class="fn-meta">{{ $post->category->name }}</div>
+                                            <div class="fn-meta">{{ $fe2_post->category->name }}</div>
                                         </div>
-                                        <h4><a href="./news_single.html">{{ $post->title }}</a></h4>
-                                        <em><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($post->published_at)->translatedFormat('d M Y') }} <a href="#"></em>
-                                        <p>{!! \Illuminate\Support\Str::words(strip_tags($post->content), 10, '...') !!}</p>
+                                        <h4><a href="./news_single.html">{{ $fe2_post->title }}</a></h4>
+                                        <em><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($fe2_post->published_at)->translatedFormat('d M Y') }} <a href="#"></em>
+                                        <p>{!! \Illuminate\Support\Str::words(strip_tags($fe2_post->content), 10, '...') !!}</p>
                                     </div>
                                 @endforeach
                             </div>
@@ -150,7 +150,7 @@
         <aside class="col-md-4">
             <!-- Popular News -->
             <div class="side-widget p-news">
-                <h5><span>Popular news</span></h5>
+                <h5><span>Politic News</span></h5>
                 <div class="sw-inner">
                     <ul>
 
@@ -173,14 +173,14 @@
                 <a href="#"><img src="{{ asset('img/banner/3.jpg') }}" class="img-responsive" alt="" /></a>
             </div>
             <div class="side-widget m-comment">
-                <h5><span>Hot News</span></h5>
+                <h5><span>PRESTASI PRIMA</span></h5>
                 <ul>
 
-                    @foreach ($posts as $post)
+                    @foreach ($pp_posts as $pp_post)
                         <li>
-                            <img src="{{ asset('storage/' . $post->image) }}" alt="" />
-                            <span>Entertainment</span>
-                            <h4><a href="#">Designed BY the Community, FOR the Community!</a></h4>
+                            <img src="{{ asset('storage/' . $pp_post->image) }}" alt="" />
+                            <span>{{ $pp_post->category->name }}</span>
+                            <h4><a href="#">{{ $pp_post->title }}</a></h4>
                         </li>
                     @endforeach
 

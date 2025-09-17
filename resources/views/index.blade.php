@@ -12,13 +12,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Gazeta - Responsive Magazine Blog Template</title>
+    <title>Pressmanews - Jakarta</title>
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="icon" href="{{ asset('img/logo/pressmanews-logo.png') }}" type="image/png">
 
     <!-- Google Fonts & Fontawesome -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"

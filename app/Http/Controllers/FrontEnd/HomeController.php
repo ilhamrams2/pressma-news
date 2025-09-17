@@ -13,8 +13,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category')->latest()->get();
-        return view('pages.home', compact('posts'));
+        $one_posts = Post::with('category')->inRandomOrder()->take(1)->get();
+        $posts = Post::with('category')
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
+
+        $fe1_posts = $posts->slice(0, 2); // ambil 2 pertama
+        $fe2_posts = $posts->slice(2, 2); // ambil 2 berikutnya
+
+        $pp_posts = Post::with('category', 'user')->where('category_id', 3)->latest()->take(5)->get();
+        return view('pages.home', compact('posts', 'pp_posts', 'one_posts', 'fe1_posts', 'fe2_posts'));
     }
 
     /**
@@ -37,7 +46,7 @@ class HomeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function category(Request $request)
     {
         //
     }
